@@ -8,6 +8,5 @@ namespace ZTP_FindPath
 {
     class test
     {
-        string testowy;
     }
 }
