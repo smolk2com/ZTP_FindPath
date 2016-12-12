@@ -10,7 +10,7 @@ namespace ZTP_FindPath
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("NIe");
+            Console.WriteLine("Tak i nie");
         }
     }
 }
