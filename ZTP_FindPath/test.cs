@@ -9,5 +9,6 @@ namespace ZTP_FindPath
     class test
     {
         string nowyplik;
+        string drugiplik;
     }
 }
