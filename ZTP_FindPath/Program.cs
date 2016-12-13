@@ -12,7 +12,6 @@ namespace ZTP_FindPath
         static void Main(string[] args)
         {
             ReadConfigXml();
-            Console.ReadKey();
         }
         static void ReadConfigXml()
         {
