@@ -22,6 +22,7 @@ namespace ZTP_FindPath
             List<double> _lat = xdoc.Descendants(gpx + "trkpt").Select(tt => (double)tt.Attribute("lat")).ToList();
             List<double> _ele = xdoc.Descendants(gpx + "trkpt").Select(t => (double)t.Element(gpx + "ele")).ToList();
             List<DateTime> _time = xdoc.Descendants(gpx + "trkpt").Select(t => (DateTime)t.Element(gpx + "time")).ToList();
+            string a = "";
         }
     }
 }
