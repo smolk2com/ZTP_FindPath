@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Distance.cs" />
     <Compile Include="Document.cs" />
+    <Compile Include="Elevation.cs" />
     <Compile Include="Paramethers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

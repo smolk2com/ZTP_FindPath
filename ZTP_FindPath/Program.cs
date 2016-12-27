@@ -22,6 +22,12 @@ namespace ZTP_FindPath
             Console.WriteLine("Average climbing speed - " + Speed.AverageClimbingSpeed() + " km/h");
             Console.WriteLine("Average descent speed - " + Speed.AverageDescentSpeed() + " km/h");
             Console.WriteLine("Average flat speed - " + Speed.AverageFlatSpeed() + " km/h");
+            Console.WriteLine("Total climbing - " + Elevation.TotalClimbing() + " m");
+            Console.WriteLine("Total descent - " + Elevation.TotalDescent() + " m");
+            Console.WriteLine("Total track time - " + Time.TotalTrackTime());
+            Console.WriteLine("Total climbing time - " + Time.TotalClimbingTime());
+            Console.WriteLine("Total descent time - " + Time.TotalDescentTime());
+            Console.WriteLine("Total flat time - " + Time.TotalFlatTime());
             Console.ReadKey();
         }
         //static void ReadConfigXml()
