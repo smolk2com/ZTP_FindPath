@@ -8,7 +8,7 @@ namespace ZTP_FindPath
 {
     public static class Distance
     {
-        #region Przeliczanie całkowitego dystansu ścieżki
+        #region Przeliczanie całkowitego dystansu ścieżki w km
         public static double TotalDistance()
         {
             Paramethers _param;
@@ -22,7 +22,7 @@ namespace ZTP_FindPath
             //double d = 1.609344 * c;
             //double total2 = 0;
             double total = 0;
-            for (int i = 0; i <= 1000; i++)
+            for (int i = 0; i <= _param.Longitude.Count - 2; i++)
             {
                 double run = DistanceBeetwenTwoPath(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]);
                 total = Math.Round(total + run, 3);
@@ -30,8 +30,8 @@ namespace ZTP_FindPath
             return total;
         }
         #endregion
-        #region Przeliczanie dystansu względem 2 współrzędnych
-        private static double DistanceBeetwenTwoPath(double lat1, double lon1, double lat2, double lon2)
+        #region Przeliczanie dystansu względem 2 współrzędnych w km
+        public static double DistanceBeetwenTwoPath(double lat1, double lon1, double lat2, double lon2)
         {
             double theta = lon1 - lon2;
             double dist = Math.Sin(Math.PI * lat1 / 180) * Math.Sin(Math.PI * lat2 / 180) + Math.Cos(Math.PI * lat1 / 180)
@@ -44,14 +44,14 @@ namespace ZTP_FindPath
 
         }
         #endregion
-        #region Przeliczanie całkowitego dystansu pod górkę
+        #region Przeliczanie całkowitego dystansu pod górkę w km
         public static double ClimbingDistance()
         {
             Paramethers _param;
             _param = new Paramethers();
             _param = Document.GetDataFromDocument();
             double total = 0;
-            for (int i = 0; i <= 1000; i++)
+            for (int i = 0; i <= _param.Longitude.Count - 2; i++)
             {
                 if (_param.Height[i] < _param.Height[i + 1])
                 {
@@ -62,14 +62,14 @@ namespace ZTP_FindPath
             return total;
         }
         #endregion
-        #region Przeliczanie całkowitego  dystansu z górki
+        #region Przeliczanie całkowitego  dystansu z górki w km
         public static double DescentDistance()
         {
             Paramethers _param;
             _param = new Paramethers();
             _param = Document.GetDataFromDocument();
             double total = 0;
-            for (int i = 0; i <= 1000; i++)
+            for (int i = 0; i <= _param.Longitude.Count - 2; i++)
             {
                 if (_param.Height[i] > _param.Height[i + 1])
                 {
@@ -80,14 +80,14 @@ namespace ZTP_FindPath
             return total;
         }
         #endregion
-        #region Przeliczanie całkowitego  dystansu po płaskim
+        #region Przeliczanie całkowitego  dystansu po płaskim w km
         public static double FlatDistance()
         {
             Paramethers _param;
             _param = new Paramethers();
             _param = Document.GetDataFromDocument();
             double total = 0;
-            for (int i = 0; i <= 1000; i++)
+            for (int i = 0; i <= _param.Longitude.Count - 2; i++)
             {
                 if (_param.Height[i] == _param.Height[i + 1])
                 {

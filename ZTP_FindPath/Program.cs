@@ -12,10 +12,16 @@ namespace ZTP_FindPath
         static void Main(string[] args)
         {
             //ReadConfigXml();
-            Console.WriteLine("Total - " + Distance.TotalDistance());
-            Console.WriteLine("Flat - " + Distance.FlatDistance());
-            Console.WriteLine("Climbing - " + Distance.ClimbingDistance());
-            Console.WriteLine("Descent - " + Distance.DescentDistance());
+            Console.WriteLine("Total - " + Distance.TotalDistance() + " km");
+            Console.WriteLine("Flat - " + Distance.FlatDistance() + " km");
+            Console.WriteLine("Climbing - " + Distance.ClimbingDistance() + " km");
+            Console.WriteLine("Descent - " + Distance.DescentDistance() + " km");
+            Console.WriteLine("Max speed - " + Speed.MaximumSpeed() + " km/h");
+            Console.WriteLine("Min speed - " + Speed.MinimumSpeed() + " km/h");
+            Console.WriteLine("Average speed - " + Speed.AverageSpeed() + " km/h");
+            Console.WriteLine("Average climbing speed - " + Speed.AverageClimbingSpeed() + " km/h");
+            Console.WriteLine("Average descent speed - " + Speed.AverageDescentSpeed() + " km/h");
+            Console.WriteLine("Average flat speed - " + Speed.AverageFlatSpeed() + " km/h");
             Console.ReadKey();
         }
         //static void ReadConfigXml()
