@@ -12,8 +12,7 @@ namespace ZTP_FindPath
         public static double TotalDistance()
         {
             Paramethers _param;
-            _param = new Paramethers();
-            _param = Document.GetDataFromDocument();
+            _param = new Paramethers("path.gpx");
 
             //double dlon = _lon[1] - _lon[0];
             //double dlat = _lat[1] - _lat[0];
@@ -48,8 +47,7 @@ namespace ZTP_FindPath
         public static double ClimbingDistance()
         {
             Paramethers _param;
-            _param = new Paramethers();
-            _param = Document.GetDataFromDocument();
+            _param = new Paramethers("path.gpx");
             double total = 0;
             for (int i = 0; i <= _param.Longitude.Count - 2; i++)
             {
@@ -66,8 +64,7 @@ namespace ZTP_FindPath
         public static double DescentDistance()
         {
             Paramethers _param;
-            _param = new Paramethers();
-            _param = Document.GetDataFromDocument();
+            _param = new Paramethers("path.gpx");
             double total = 0;
             for (int i = 0; i <= _param.Longitude.Count - 2; i++)
             {
@@ -84,8 +81,7 @@ namespace ZTP_FindPath
         public static double FlatDistance()
         {
             Paramethers _param;
-            _param = new Paramethers();
-            _param = Document.GetDataFromDocument();
+            _param = new Paramethers("path.gpx");
             double total = 0;
             for (int i = 0; i <= _param.Longitude.Count - 2; i++)
             {

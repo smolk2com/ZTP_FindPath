@@ -12,8 +12,7 @@ namespace ZTP_FindPath
         public static double TotalClimbing()
         {
             Paramethers _param;
-            _param = new Paramethers();
-            _param = Document.GetDataFromDocument();
+            _param = new Paramethers("path.gpx");
             double _height = 0;
 
             for (int i = 0; i <= _param.Height.Count -2; i++)
@@ -28,8 +27,7 @@ namespace ZTP_FindPath
         public static double TotalDescent()
         {
             Paramethers _param;
-            _param = new Paramethers();
-            _param = Document.GetDataFromDocument();
+            _param = new Paramethers("path.gpx");
             double _height = 0;
 
             for (int i = 0; i <= _param.Height.Count - 2; i++)

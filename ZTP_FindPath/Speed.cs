@@ -12,8 +12,8 @@ namespace ZTP_FindPath
         public static double MinimumSpeed()
         {
             Paramethers _param;
-            _param = new Paramethers();
-            _param = Document.GetDataFromDocument();
+            _param = new Paramethers("path.gpx");
+            //_param = Document.GetDataFromDocument(new Paramethers());
             double speed1 = 0;
             double speed2 = 100;
             for (int i = 0; i <= _param.Longitude.Count - 2; i++)
@@ -37,8 +37,8 @@ namespace ZTP_FindPath
         public static double MaximumSpeed()
         {
             Paramethers _param;
-            _param = new Paramethers();
-            _param = Document.GetDataFromDocument();
+            _param = new Paramethers("path.gpx");
+            // _param = Document.GetDataFromDocument(new Paramethers());
             double speed1 = 0;
             double speed2 = 0;
             for (int i = 0; i <= _param.Longitude.Count - 2; i++)
@@ -62,9 +62,9 @@ namespace ZTP_FindPath
         public static double AverageSpeed()
         {
             Paramethers _param;
+            _param = new Paramethers("path.gpx");
             double _averageSpeed = 0;
-            _param = new Paramethers();
-            _param = Document.GetDataFromDocument();
+            //_param = Document.GetDataFromDocument(new Paramethers());
             _averageSpeed = Math.Round(Distance.TotalDistance() / Time.TotalTime(_param.AllTimes),3);
             return _averageSpeed;
         }
@@ -73,11 +73,11 @@ namespace ZTP_FindPath
         public static double AverageClimbingSpeed()
         {
             Paramethers _param;
+            _param = new Paramethers("path.gpx");
             double _averageSpeed = 0;
             double _distance = 0;
             double _time = 0;
-            _param = new Paramethers();
-            _param = Document.GetDataFromDocument();
+           // _param = Document.GetDataFromDocument(new Paramethers());
             for (int i = 0; i <= _param.Longitude.Count -2; i++)
             {
                 if (_param.Height[i] < _param.Height[i + 1])
@@ -96,11 +96,11 @@ namespace ZTP_FindPath
         public static double AverageDescentSpeed()
         {
             Paramethers _param;
+            _param = new Paramethers("path.gpx");
             double _averageSpeed = 0;
             double _distance = 0;
             double _time = 0;
-            _param = new Paramethers();
-            _param = Document.GetDataFromDocument();
+           // _param = Document.GetDataFromDocument(new Paramethers());
             for (int i = 0; i <= _param.Longitude.Count - 2; i++)
             {
                 if (_param.Height[i] > _param.Height[i + 1])
@@ -119,11 +119,11 @@ namespace ZTP_FindPath
         public static double AverageFlatSpeed()
         {
             Paramethers _param;
+            _param = new Paramethers("path.gpx");
             double _averageSpeed = 0;
             double _distance = 0;
             double _time = 0;
-            _param = new Paramethers();
-            _param = Document.GetDataFromDocument();
+            //_param = Document.GetDataFromDocument(new Paramethers());
             for (int i = 0; i <= _param.Longitude.Count - 2; i++)
             {
                 if (_param.Height[i] == _param.Height[i + 1])
