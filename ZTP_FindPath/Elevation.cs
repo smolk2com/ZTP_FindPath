@@ -8,6 +8,14 @@ namespace ZTP_FindPath
 {
     public static class Elevation
     {
+        #region Obliczanie średniej wspinania
+        public static double AverageElevation()
+        {
+            Paramethers _param;
+            _param = new Paramethers("path.gpx");
+            return Math.Round(_param.Height.Average(), 2);
+        }
+        #endregion
         #region Obliczanie całkowitego wspinania
         public static double TotalClimbing()
         {

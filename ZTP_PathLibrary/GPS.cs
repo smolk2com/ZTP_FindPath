@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZTP_PathLibrary
 {
-    public class Path
+    public class GPS
     {
     }
 }
