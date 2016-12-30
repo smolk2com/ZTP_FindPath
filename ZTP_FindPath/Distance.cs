@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Serilog;
 
 namespace ZTP_FindPath
 {
@@ -26,6 +27,7 @@ namespace ZTP_FindPath
                 double run = DistanceBeetwenTwoPath(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]);
                 total = Math.Round(total + run, 3);
             }
+            //Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.LiterateConsole()
             return total;
         }
         #endregion
