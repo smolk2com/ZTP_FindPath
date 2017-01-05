@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Serilog;
 
 namespace ZTP_FindPath
 {
@@ -11,6 +12,8 @@ namespace ZTP_FindPath
     {
         static void Main(string[] args)
         {
+            Log.Logger = new LoggerConfiguration().WriteTo.File(Environment.CurrentDirectory + @"\log.txt").CreateLogger();
+            Log.Information("Run GPS");
             //ReadConfigXml();
             Console.WriteLine("Total - " + Distance.TotalDistance() + " km");
             Console.WriteLine("Flat - " + Distance.FlatDistance() + " km");

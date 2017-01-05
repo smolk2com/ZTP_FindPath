@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Serilog;
 
-namespace ZTP_FindPath
+namespace ZTP_PathLibrary
 {
     public static class Distance
     {
@@ -14,6 +14,7 @@ namespace ZTP_FindPath
         {
             Paramethers _param;
             _param = new Paramethers("path.gpx");
+
             //double dlon = _lon[1] - _lon[0];
             //double dlat = _lat[1] - _lat[0];
             //double a = Math.Sqrt(Math.Abs(Math.Sin(dlat / 2))) + Math.Cos(_lat[0]) * Math.Cos(_lat[1]) * Math.Sqrt(Math.Abs(Math.Sin(dlon / 2)));
@@ -26,7 +27,7 @@ namespace ZTP_FindPath
                 double run = DistanceBeetwenTwoPath(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]);
                 total = Math.Round(total + run, 3);
             }
-            Log.Information("calculate total Distance");
+            //Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.LiterateConsole()
             return total;
         }
         #endregion
@@ -39,6 +40,7 @@ namespace ZTP_FindPath
             dist = Math.Acos(dist);
             dist = dist * 180 / Math.PI;
             dist = dist * 60 * 1.1515;
+
             return dist * 1.609344;
 
         }

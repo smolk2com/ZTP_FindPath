@@ -56,8 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GPS.cs" />
+    <Compile Include="Distance.cs" />
+    <Compile Include="Elevation.cs" />
+    <Compile Include="Paramethers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Speed.cs" />
+    <Compile Include="Time.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
