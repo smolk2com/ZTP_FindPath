@@ -14,8 +14,10 @@ namespace ZTP_FindPath
         {
             Log.Logger = new LoggerConfiguration().WriteTo.File(Environment.CurrentDirectory + @"\log.txt").CreateLogger();
             Log.Information("Run GPS");
+            Paramethers _param;
+            _param = new Paramethers("path.gpx");
             //ReadConfigXml();
-            Console.WriteLine("Total - " + Distance.TotalDistance() + " km");
+            Console.WriteLine("Total - " + Distance.TotalDistance(_param) + " km");
             Console.WriteLine("Flat - " + Distance.FlatDistance() + " km");
             Console.WriteLine("Climbing - " + Distance.ClimbingDistance() + " km");
             Console.WriteLine("Descent - " + Distance.DescentDistance() + " km");

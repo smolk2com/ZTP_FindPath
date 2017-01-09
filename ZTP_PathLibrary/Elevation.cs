@@ -9,18 +9,16 @@ namespace ZTP_PathLibrary
     public static class Elevation
     {
         #region Obliczanie średniej wspinania
-        public static double AverageElevation()
+        public static double AverageElevation(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+            
             return Math.Round(_param.Height.Average(), 2);
         }
         #endregion
         #region Obliczanie całkowitego wspinania
-        public static double TotalClimbing()
+        public static double TotalClimbing(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+           
             double _height = 0;
 
             for (int i = 0; i <= _param.Height.Count -2; i++)
@@ -32,10 +30,9 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Obliczanie całkowitego schodzenia
-        public static double TotalDescent()
+        public static double TotalDescent(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+            
             double _height = 0;
 
             for (int i = 0; i <= _param.Height.Count - 2; i++)

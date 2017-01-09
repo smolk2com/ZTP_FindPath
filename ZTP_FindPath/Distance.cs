@@ -10,10 +10,8 @@ namespace ZTP_FindPath
     public static class Distance
     {
         #region Przeliczanie całkowitego dystansu ścieżki w km
-        public static double TotalDistance()
+        public static double TotalDistance(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
             //double dlon = _lon[1] - _lon[0];
             //double dlat = _lat[1] - _lat[0];
             //double a = Math.Sqrt(Math.Abs(Math.Sin(dlat / 2))) + Math.Cos(_lat[0]) * Math.Cos(_lat[1]) * Math.Sqrt(Math.Abs(Math.Sin(dlon / 2)));
@@ -24,10 +22,10 @@ namespace ZTP_FindPath
             for (int i = 0; i <= _param.Longitude.Count - 2; i++)
             {
                 double run = DistanceBeetwenTwoPath(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]);
-                total = Math.Round(total + run, 3);
+                total += run;
             }
             Log.Information("calculate total Distance");
-            return total;
+            return Math.Round(total,3);
         }
         #endregion
         #region Przeliczanie dystansu względem 2 współrzędnych w km
