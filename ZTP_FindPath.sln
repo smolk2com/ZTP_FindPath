@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZTP_FindPath", "ZTP_FindPat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZTP_PathLibrary", "ZTP_PathLibrary\ZTP_PathLibrary.csproj", "{1DCB0C03-43FD-4483-91AC-DE2D6D397B80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsPathLibrary", "Tests\TestsPathLibrary.csproj", "{70B1197F-A220-4069-AF39-3B4EE4086576}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1DCB0C03-43FD-4483-91AC-DE2D6D397B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DCB0C03-43FD-4483-91AC-DE2D6D397B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DCB0C03-43FD-4483-91AC-DE2D6D397B80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70B1197F-A220-4069-AF39-3B4EE4086576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70B1197F-A220-4069-AF39-3B4EE4086576}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70B1197F-A220-4069-AF39-3B4EE4086576}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70B1197F-A220-4069-AF39-3B4EE4086576}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
