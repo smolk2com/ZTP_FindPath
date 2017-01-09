@@ -33,10 +33,9 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczanie całkowitego czasu trasy na dni, godziny, minuty, sekundy
-        public static string TotalTrackTime()
+        public static string TotalTrackTime(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+            
             TimeSpan _time;
             double _totalTime;
             _totalTime = TotalTime(_param.AllTimes);
@@ -45,10 +44,9 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczenie całkowitego czasu pod górę
-        public static string TotalClimbingTime()
+        public static string TotalClimbingTime(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+         
             double _TotalTime = 0;
 
             for (int i = 0; i <= _param.Height.Count - 2; i++)
@@ -60,10 +58,9 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczenie całkowitego czasu z górki
-        public static string TotalDescentTime()
+        public static string TotalDescentTime(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+            
             double _TotalTime = 0;
 
             for (int i = 0; i <= _param.Height.Count - 2; i++)
@@ -75,10 +72,9 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczenie całkowitego czasu po równum
-        public static string TotalFlatTime()
+        public static string TotalFlatTime(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+           
             double _TotalTime = 0;
 
             for (int i = 0; i <= _param.Height.Count - 2; i++)

@@ -64,7 +64,7 @@ namespace ZTP_FindPath
             Paramethers _param;
             _param = new Paramethers("path.gpx");
             double _averageSpeed = 0;
-            _averageSpeed = Math.Round(Distance.TotalDistance() / Time.TotalTime(_param.AllTimes),3);
+            _averageSpeed = Math.Round(Distance.TotalDistance(_param) / Time.TotalTime(_param.AllTimes),3);
             return _averageSpeed;
         }
         #endregion

@@ -9,10 +9,9 @@ namespace ZTP_PathLibrary
     public static class Speed
     {
         #region Przeliczanie największej prędkości w km/h
-        public static double MinimumSpeed()
+        public static double MinimumSpeed(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+            
             //_param = Document.GetDataFromDocument(new Paramethers());
             double speed1 = 0;
             double speed2 = 100;
@@ -34,10 +33,9 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczanie minimalnej prędkości w km/h
-        public static double MaximumSpeed()
+        public static double MaximumSpeed(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+           
             // _param = Document.GetDataFromDocument(new Paramethers());
             double speed1 = 0;
             double speed2 = 0;
@@ -59,20 +57,18 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczanie średniej prędkości w km/h
-        public static double AverageSpeed()
+        public static double AverageSpeed(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+            
             double _averageSpeed = 0;
-            _averageSpeed = Math.Round(Distance.TotalDistance() / Time.TotalTime(_param.AllTimes),3);
+            _averageSpeed = Math.Round(Distance.TotalDistance( _param) / Time.TotalTime(_param.AllTimes),3);
             return _averageSpeed;
         }
         #endregion
         #region Przeliczanie średniej prędkości pod górę w km/h
-        public static double AverageClimbingSpeed()
+        public static double AverageClimbingSpeed(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+           
             double _averageSpeed = 0;
             double _distance = 0;
             double _time = 0;
@@ -92,10 +88,9 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczanie średniej prędkości z górki w km/h
-        public static double AverageDescentSpeed()
+        public static double AverageDescentSpeed(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+
             double _averageSpeed = 0;
             double _distance = 0;
             double _time = 0;
@@ -115,10 +110,8 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczanie średniej prędkości na płaskim w km/h
-        public static double AverageFlatSpeed()
+        public static double AverageFlatSpeed(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
             double _averageSpeed = 0;
             double _distance = 0;
             double _time = 0;

@@ -36,5 +36,8 @@ namespace TestsPathLibrary
             //assert
             Assert.AreEqual(expected, result, "Nie działa wyznaczanie całkowitego dystansu");
         }
+
+        
+
     }
 }

@@ -10,10 +10,9 @@ namespace ZTP_PathLibrary
     public static class Distance
     {
         #region Przeliczanie całkowitego dystansu ścieżki w km
-        public static double TotalDistance()
+        public static double TotalDistance(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+
 
             //double dlon = _lon[1] - _lon[0];
             //double dlat = _lat[1] - _lat[0];
@@ -21,14 +20,33 @@ namespace ZTP_PathLibrary
             //double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
             //double d = 1.609344 * c;
             //double total2 = 0;
+           
+            //double _lat1 = 38.898556D;
+            //double _lon1 = -77.037852D;
+
+            //double _lat2 = 38.897147D;
+            //double _lon2 = -77.043934D;
+
+            //double dlon = _lon2 - _lon1;
+
+            //double dlat = _lat2 - _lat1;
+
+            //double a = Math.Pow(Math.Sin(dlat / 2),2) + Math.Cos(_lat1) * Math.Cos(_lat2) * Math.Pow(Math.Sin(dlon / 2),2);
+            
+            //double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1-a));
+            
+            //double d = 6373 * c;
+          
+            //return d;
+
             double total = 0;
             for (int i = 0; i <= _param.Longitude.Count - 2; i++)
             {
                 double run = DistanceBeetwenTwoPath(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]);
-                total = Math.Round(total + run, 3);
-            }
+                total += run;
+        }
             //Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.LiterateConsole()
-            return total;
+            return  Math.Round(total,3);
         }
         #endregion
         #region Przeliczanie dystansu względem 2 współrzędnych w km
@@ -46,10 +64,9 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczanie całkowitego dystansu pod górkę w km
-        public static double ClimbingDistance()
+        public static double ClimbingDistance(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+            
             double total = 0;
             for (int i = 0; i <= _param.Longitude.Count - 2; i++)
             {
@@ -63,10 +80,9 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczanie całkowitego  dystansu z górki w km
-        public static double DescentDistance()
+        public static double DescentDistance(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+            
             double total = 0;
             for (int i = 0; i <= _param.Longitude.Count - 2; i++)
             {
@@ -80,10 +96,9 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczanie całkowitego  dystansu po płaskim w km
-        public static double FlatDistance()
+        public static double FlatDistance(Paramethers _param)
         {
-            Paramethers _param;
-            _param = new Paramethers("path.gpx");
+           
             double total = 0;
             for (int i = 0; i <= _param.Longitude.Count - 2; i++)
             {
