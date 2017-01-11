@@ -35,6 +35,8 @@ namespace ZTP_PathLibrary
             
             double _height = 0;
 
+           
+
             for (int i = 0; i <= _param.Height.Count - 2; i++)
             {
                 if (_param.Height[i] > _param.Height[i + 1])

@@ -16,8 +16,9 @@ namespace ZTP_Start
 
             //Log.Logger = new LoggerConfiguration().WriteTo.File(Environment.CurrentDirectory + @"\log.txt").CreateLogger();
             //Log.Information("Run GPS");
-            
+
             //ReadConfigXml();
+            Console.WriteLine("test: " + Distance.GetDistanceKM(38.898556D, -77.037852D, 38.897147D, -77.043934D));
             Console.WriteLine("Total - " + Distance.TotalDistance(_param) + " km");
             Console.WriteLine("Flat - " + Distance.FlatDistance(_param) + " km");
             Console.WriteLine("Climbing - " + Distance.ClimbingDistance(_param) + " km");
