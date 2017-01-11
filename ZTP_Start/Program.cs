@@ -19,6 +19,7 @@ namespace ZTP_Start
 
             //ReadConfigXml();
             Console.WriteLine("test: " + Distance.GetDistanceKM(38.898556D, -77.037852D, 38.897147D, -77.043934D));
+            Console.WriteLine("test: " + Distance.GetDistanceKM(5,5,2,2));
             Console.WriteLine("Total - " + Distance.TotalDistance(_param) + " km");
             Console.WriteLine("Flat - " + Distance.FlatDistance(_param) + " km");
             Console.WriteLine("Climbing - " + Distance.ClimbingDistance(_param) + " km");
