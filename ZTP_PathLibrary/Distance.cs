@@ -42,7 +42,7 @@ namespace ZTP_PathLibrary
             double total = 0;
             for (int i = 0; i <= _param.Longitude.Count - 2; i++)
             {
-                double run = DistanceBeetwenTwoPath(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]);
+                double run = GetDistanceKM(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]);
                 total += run;
         }
             //Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.LiterateConsole()
