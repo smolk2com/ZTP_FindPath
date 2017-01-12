@@ -18,8 +18,7 @@ namespace ZTP_Start
             //Log.Information("Run GPS");
 
             //ReadConfigXml();
-            Console.WriteLine("test: " + Distance.GetDistanceKM(38.898556D, -77.037852D, 38.897147D, -77.043934D));
-            Console.WriteLine("test: " + Distance.GetDistanceKM(5,5,2,2));
+            Console.WriteLine("test: " + Distance.GetDistanceKM(49.767436, 19.045251, 49.767408, 19.045281));
             Console.WriteLine("Total - " + Distance.TotalDistance(_param) + " km");
             Console.WriteLine("Flat - " + Distance.FlatDistance(_param) + " km");
             Console.WriteLine("Climbing - " + Distance.ClimbingDistance(_param) + " km");
