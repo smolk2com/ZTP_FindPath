@@ -10,7 +10,7 @@ namespace ZTP_PathLibrary
     public static class Distance
     {
         #region Przeliczanie całkowitego dystansu ścieżki w km
-        public static double TotalDistance(Paramethers _param)
+        public static double TotalDistance(List<Points> _points)
         {
 
 
@@ -40,39 +40,39 @@ namespace ZTP_PathLibrary
             //return d;
 
             double total = 0;
-            for (int i = 0; i <= _param.Longitude.Count - 2; i++)
+            for (int i = 0; i <= _points.Count - 2; i++)
             {
-                double run = GetDistanceKM(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]);
+                double run = GetDistanceKM(_points[i].lat, _points[i].lon, _points[i + 1].lat, _points[i + 1].lon);
                 total += run;
         }
             //Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.LiterateConsole()
             return  Math.Round(total,3);
         }
         #endregion
-        #region Przeliczanie dystansu względem 2 współrzędnych w km
-        public static double DistanceBeetwenTwoPath(double lat1, double lon1, double lat2, double lon2)
-        {
-            double theta = lon1 - lon2;
-            double dist = Math.Sin(Math.PI * lat1 / 180) * Math.Sin(Math.PI * lat2 / 180) + Math.Cos(Math.PI * lat1 / 180)
-                * Math.Cos(Math.PI * lat2 / 180) * Math.Cos(Math.PI * theta / 180);
-            dist = Math.Acos(dist);
-            dist = dist * 180 / Math.PI;
-            dist = dist * 60 * 1.1515;
+        #region Przeliczanie dystansu względem 2 współrzędnych w km OLD
+        //public static double DistanceBeetwenTwoPath(double lat1, double lon1, double lat2, double lon2)
+        //{
+        //    double theta = lon1 - lon2;
+        //    double dist = Math.Sin(Math.PI * lat1 / 180) * Math.Sin(Math.PI * lat2 / 180) + Math.Cos(Math.PI * lat1 / 180)
+        //        * Math.Cos(Math.PI * lat2 / 180) * Math.Cos(Math.PI * theta / 180);
+        //    dist = Math.Acos(dist);
+        //    dist = dist * 180 / Math.PI;
+        //    dist = dist * 60 * 1.1515;
 
-            return dist * 1.609344;
+        //    return dist * 1.609344;
 
-        }
+        //}
         #endregion
         #region Przeliczanie całkowitego dystansu pod górkę w km
-        public static double ClimbingDistance(Paramethers _param)
+        public static double ClimbingDistance(List<Points> _points)
         {
             
             double total = 0;
-            for (int i = 0; i <= _param.Longitude.Count - 2; i++)
+            for (int i = 0; i <= _points.Count - 2; i++)
             {
-                if (_param.Height[i] < _param.Height[i + 1])
+                if (_points[i].ele < _points[i+ 1].ele)
                 {
-                    double run = DistanceBeetwenTwoPath(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]);
+                    double run = GetDistanceKM(_points[i].lat, _points[i].lon, _points[i + 1].lat, _points[i + 1].lon);
                     total = Math.Round(total + run, 3);
                 }
             }
@@ -80,15 +80,15 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczanie całkowitego  dystansu z górki w km
-        public static double DescentDistance(Paramethers _param)
+        public static double DescentDistance(List<Points> _points)
         {
             
             double total = 0;
-            for (int i = 0; i <= _param.Longitude.Count - 2; i++)
+            for (int i = 0; i <= _points.Count - 2; i++)
             {
-                if (_param.Height[i] > _param.Height[i + 1])
+                if (_points[i].ele > _points[i + 1].ele)
                 {
-                    double run = DistanceBeetwenTwoPath(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]);
+                    double run = GetDistanceKM(_points[i].lat, _points[i].lon, _points[i + 1].lat, _points[i + 1].lon);
                     total = Math.Round(total + run, 3);
                 }
             }
@@ -96,23 +96,22 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczanie całkowitego  dystansu po płaskim w km
-        public static double FlatDistance(Paramethers _param)
+        public static double FlatDistance(List<Points> _point)
         {
            
             double total = 0;
-            for (int i = 0; i <= _param.Longitude.Count - 2; i++)
+            for (int i = 0; i <= _point.Count - 2; i++)
             {
-                if (_param.Height[i] == _param.Height[i + 1])
+                if (_point[i].ele == _point[i + 1].ele)
                 {
-                    double run = DistanceBeetwenTwoPath(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]);
+                    double run = GetDistanceKM(_point[i].lat, _point[i].lon, _point[i + 1].lat, _point[i + 1].lon);
                     total = Math.Round(total + run, 3);
                 }
             }
             return total;
         }
         #endregion
-
-      
+        #region Przeliczanie dystansu pomiędzy 2 współrzędnymi
         private const double EARTH_RADIUS_KM = 6371;
 
         private static double ToRad(double input)
@@ -135,5 +134,6 @@ namespace ZTP_PathLibrary
             double distance = EARTH_RADIUS_KM * c;
             return distance;
         }
+        #endregion
     }
 }

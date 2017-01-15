@@ -14,7 +14,7 @@ namespace ZTP_PathLibrary.Tests
         [TestMethod()]
         public void AverageElevationTest()
         {
-            Paramethers _param = new Paramethers();
+            List _param = new List();
             Assert.IsNotNull(_param);
         }
 
@@ -23,7 +23,7 @@ namespace ZTP_PathLibrary.Tests
         {
             double totalclimbing = 81.5D;
 
-            Paramethers _param = new Paramethers();
+            List _param = new List();
             double test = Elevation.TotalClimbing(_param);
            
             Assert.AreEqual(test, totalclimbing);
@@ -34,7 +34,7 @@ namespace ZTP_PathLibrary.Tests
         {
             double totalclimbing = 327.9D;
 
-            Paramethers _param = new Paramethers();
+            List _param = new List();
             double test = Elevation.TotalDescent(_param);
 
             Assert.AreEqual(test, totalclimbing);
