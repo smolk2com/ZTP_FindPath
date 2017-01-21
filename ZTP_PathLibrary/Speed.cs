@@ -9,17 +9,17 @@ namespace ZTP_PathLibrary
     public static class Speed
     {
         #region Przeliczanie największej prędkości w km/h
-        public static double MinimumSpeed(Paramethers _param)
+        public static double MinimumSpeed(List<Points> _points)
         {
             
             //_param = Document.GetDataFromDocument(new Paramethers());
             double speed1 = 0;
             double speed2 = 100;
-            for (int i = 0; i <= _param.Longitude.Count - 2; i++)
+            for (int i = 0; i <= _points.Count - 2; i++)
             {
-                double _distance = Math.Round(Distance.DistanceBeetwenTwoPath(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]), 3);
+                double _distance = Math.Round(Distance.GetDistanceKM(_points[i].lat, _points[i].lon, _points[i + 1].lat, _points[i + 1].lon), 3);
                 //total = Math.Round(total + run, 3);
-                int _time = Time.TimeBeetwenTwoPath(_param.AllTimes[i], _param.AllTimes[i + 1]);
+                int _time = Time.TimeBeetwenTwoPath(_points[i].time, _points[i + 1].time);
                 speed1 = Math.Round(_distance * 1000 / _time * 3.6, 4);
                 if (speed2 > speed1)
                 {
@@ -33,17 +33,17 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczanie minimalnej prędkości w km/h
-        public static double MaximumSpeed(Paramethers _param)
+        public static double MaximumSpeed(List<Points> _points)
         {
            
             // _param = Document.GetDataFromDocument(new Paramethers());
             double speed1 = 0;
             double speed2 = 0;
-            for (int i = 0; i <= _param.Longitude.Count - 2; i++)
+            for (int i = 0; i <= _points.Count - 2; i++)
             {
-                double _distance = Math.Round(Distance.DistanceBeetwenTwoPath(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]), 3);
+                double _distance = Math.Round(Distance.GetDistanceKM(_points[i].lat, _points[i].lon, _points[i + 1].lat, _points[i + 1].lon), 3);
                 //total = Math.Round(total + run, 3);
-                int _time = Time.TimeBeetwenTwoPath(_param.AllTimes[i], _param.AllTimes[i+1]);
+                int _time = Time.TimeBeetwenTwoPath(_points[i].time, _points[i+1].time);
                 speed1 = Math.Round(_distance * 1000 / _time * 3.6,4);
                 if (speed2 < speed1)
                 {
@@ -57,28 +57,28 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczanie średniej prędkości w km/h
-        public static double AverageSpeed(Paramethers _param)
+        public static double AverageSpeed(List<Points> _points)
         {
             
             double _averageSpeed = 0;
-            _averageSpeed = Math.Round(Distance.TotalDistance( _param) / Time.TotalTime(_param.AllTimes),3);
+            _averageSpeed = Math.Round(Distance.TotalDistance( _points) / Time.TotalTime(_points),3);
             return _averageSpeed;
         }
         #endregion
         #region Przeliczanie średniej prędkości pod górę w km/h
-        public static double AverageClimbingSpeed(Paramethers _param)
+        public static double AverageClimbingSpeed(List<Points> _points)
         {
            
             double _averageSpeed = 0;
             double _distance = 0;
             double _time = 0;
            // _param = Document.GetDataFromDocument(new Paramethers());
-            for (int i = 0; i <= _param.Longitude.Count -2; i++)
+            for (int i = 0; i <= _points.Count -2; i++)
             {
-                if (_param.Height[i] < _param.Height[i + 1])
+                if (_points[i].ele < _points[i + 1].ele)
                 {
-                    _distance += Math.Round(Distance.DistanceBeetwenTwoPath(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]), 3);
-                    _time += Time.TimeBeetwenTwoPath(_param.AllTimes[i], _param.AllTimes[i + 1]);
+                    _distance += Math.Round(Distance.GetDistanceKM(_points[i].lat, _points[i].lon, _points[i + 1].lat, _points[i + 1].lon), 3);
+                    _time += Time.TimeBeetwenTwoPath(_points[i].time, _points[i + 1].time);
                 }
             }
             //przeliczenie na godziny
@@ -88,19 +88,19 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczanie średniej prędkości z górki w km/h
-        public static double AverageDescentSpeed(Paramethers _param)
+        public static double AverageDescentSpeed(List<Points> _points)
         {
 
             double _averageSpeed = 0;
             double _distance = 0;
             double _time = 0;
            // _param = Document.GetDataFromDocument(new Paramethers());
-            for (int i = 0; i <= _param.Longitude.Count - 2; i++)
+            for (int i = 0; i <= _points.Count - 2; i++)
             {
-                if (_param.Height[i] > _param.Height[i + 1])
+                if (_points[i].ele > _points[i + 1].ele)
                 {
-                    _distance += Math.Round(Distance.DistanceBeetwenTwoPath(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]), 3);
-                    _time += Time.TimeBeetwenTwoPath(_param.AllTimes[i], _param.AllTimes[i + 1]);
+                    _distance += Math.Round(Distance.GetDistanceKM(_points[i].lat, _points[i].lon, _points[i + 1].lat, _points[i + 1].lon), 3);
+                    _time += Time.TimeBeetwenTwoPath(_points[i].time, _points[i + 1].time);
                 }
             }
             //przeliczenie na godziny
@@ -110,18 +110,17 @@ namespace ZTP_PathLibrary
         }
         #endregion
         #region Przeliczanie średniej prędkości na płaskim w km/h
-        public static double AverageFlatSpeed(Paramethers _param)
+        public static double AverageFlatSpeed(List<Points> _points)
         {
             double _averageSpeed = 0;
             double _distance = 0;
             double _time = 0;
-            //_param = Document.GetDataFromDocument(new Paramethers());
-            for (int i = 0; i <= _param.Longitude.Count - 2; i++)
+            for (int i = 0; i <= _points.Count - 2; i++)
             {
-                if (_param.Height[i] == _param.Height[i + 1])
+                if (_points[i].ele == _points[i + 1].ele)
                 {
-                    _distance += Math.Round(Distance.DistanceBeetwenTwoPath(_param.Latitude[i], _param.Longitude[i], _param.Latitude[i + 1], _param.Longitude[i + 1]), 3);
-                    _time += Time.TimeBeetwenTwoPath(_param.AllTimes[i], _param.AllTimes[i + 1]);
+                    _distance += Math.Round(Distance.GetDistanceKM(_points[i].lat, _points[i].lon, _points[i + 1].lat, _points[i + 1].lon), 3);
+                    _time += Time.TimeBeetwenTwoPath(_points[i].time, _points[i + 1].time);
                 }
             }
             //przeliczenie na godziny

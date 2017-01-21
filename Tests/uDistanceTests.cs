@@ -32,7 +32,7 @@ namespace TestsPathLibrary
             double expected = double.Parse(TestContext.DataRow["res"].ToString());
             double result;
             //act
-            result = Math.Round(Distance.DistanceBeetwenTwoPath(_lat1, _lon1, _lat2, _lon2),3);
+            result = Math.Round(Distance.GetDistanceKM(_lat1, _lon1, _lat2, _lon2),3);
             //assert
             Assert.AreEqual(expected, result, "Nie działa wyznaczanie całkowitego dystansu");
         }
