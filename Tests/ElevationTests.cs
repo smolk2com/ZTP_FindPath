@@ -11,33 +11,27 @@ namespace ZTP_PathLibrary.Tests
     [TestClass()]
     public class ElevationTests
     {
+        List<Points> _points = Paramethers.GetPoints(@"\..\..\..\..\Path.gpx");
         [TestMethod()]
         public void AverageElevationTest()
         {
-            List _param = new List();
-            Assert.IsNotNull(_param);
+            double test = Elevation.AverageElevation(_points);
+            Assert.AreEqual(548.78, test);
         }
 
         [TestMethod()]
         public void TotalClimbingTest()
         {
-            double totalclimbing = 81.5D;
-
-            List _param = new List();
-            double test = Elevation.TotalClimbing(_param);
-           
-            Assert.AreEqual(test, totalclimbing);
+            double test = Elevation.TotalClimbing(_points);
+            Assert.AreEqual(81.5, test);
+            
         }
 
         [TestMethod()]
         public void TotalDescentTest()
         {
-            double totalclimbing = 327.9D;
-
-            List _param = new List();
-            double test = Elevation.TotalDescent(_param);
-
-            Assert.AreEqual(test, totalclimbing);
+            double test = Elevation.TotalDescent(_points);
+            Assert.AreEqual(327.9, test);
         }
     }
 }

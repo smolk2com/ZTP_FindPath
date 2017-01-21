@@ -9,10 +9,10 @@ namespace ZTP_PathLibrary
 {
     public class Points
     {
-        private double _lon;
-        private double _lat;
-        private double _ele;
-        private DateTime _time;
+        //private double _lon;
+        //private double _lat;
+        //private double _ele;
+        //private DateTime _time;
         public double lon { get; set; }
         public double lat { get; set; }
         public double ele { get; set; }

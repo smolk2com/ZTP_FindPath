@@ -17,19 +17,26 @@ namespace ZTP_PathLibrary
             Time2 = _dayOfYear * 86400 + _secondDate.Hour * 3600 + _secondDate.Minute * 60 + _secondDate.Second;       
             return Time2- Time1;
         }
+
         #endregion
         #region Przeliczanie całkowitego czasu trasy w godzinach
         public static double TotalTime(List<Points> _points)
         {
-            double _totalTime = 0;
-            for (int i = 0; i <= _points.Count -2; i++)
-            {
-                int _dayOfYear = _points[i].time.DayOfYear - _points[i+1].time.DayOfYear;
-                _totalTime += _points[i].time.Hour * 3600 + _points[i].time.Minute * 60 + _points[i].time.Second + _dayOfYear * 86400 - _points[i+1].time.Hour * 3600 + _points[i + 1].time.Minute * 60 + _points[i + 1].time.Second;
-            }
-            //przeliczenie na godziny
-            _totalTime = Math.Round(_totalTime * 0.000277777777778,2);
-            return _totalTime;
+            //double _totalTime = 0;
+            //for (int i = 0; i <= _points.Count -2; i++)
+            //{
+            //    int _dayOfYear = _points[i].time.DayOfYear - _points[i+1].time.DayOfYear;
+            //    _totalTime += _points[i].time.Hour * 3600 + _points[i].time.Minute * 60 + _points[i].time.Second + _dayOfYear * 86400 - _points[i+1].time.Hour * 3600 + _points[i + 1].time.Minute * 60 + _points[i + 1].time.Second;
+            //}
+            ////przeliczenie na godziny
+            //_totalTime = Math.Round(_totalTime * 0.000277777777778,2);
+
+            DateTime firstPoint = _points[0].time;
+            DateTime lastPoint = _points[_points.Count - 1].time;
+
+            double value1 = Time.TimeBeetwenTwoPath(firstPoint, lastPoint);
+
+            return value1;
         }
         #endregion
         #region Przeliczanie całkowitego czasu trasy na dni, godziny, minuty, sekundy

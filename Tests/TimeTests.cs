@@ -6,45 +6,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZTP_PathLibrary.Tests
+namespace Global.Tests
 {
     [TestClass()]
     public class TimeTests
     {
+        List<Points> _points = Paramethers.GetPoints(@"\..\..\..\..\Path.gpx");
+
         [TestMethod()]
         public void TimeBeetwenTwoPathTest()
         {
-            Assert.Fail();
+            Points firstPoint = _points[3];
+            Points secondPoint = _points[742];
+
+            int test = 1213522;
+            int value = Time.TimeBeetwenTwoPath(firstPoint.time, secondPoint.time);
+
+            Assert.AreEqual(test, value);
         }
 
         [TestMethod()]
         public void TotalTimeTest()
         {
-            Assert.Fail();
-        }
+            DateTime firstPoint = _points[0].time;
+            DateTime lastPoint = _points[_points.Count - 1].time;
 
-        [TestMethod()]
-        public void TotalTrackTimeTest()
-        {
-            Assert.Fail();
-        }
+            double value1 = Time.TimeBeetwenTwoPath(firstPoint, lastPoint);
+            double value2 = Time.TotalTime(_points);
 
-        [TestMethod()]
-        public void TotalClimbingTimeTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void TotalDescentTimeTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void TotalFlatTimeTest()
-        {
-
+            Assert.AreEqual(value1, value2);
         }
     }
 }

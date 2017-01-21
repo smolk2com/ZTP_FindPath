@@ -51,7 +51,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DistanceTests.cs" />
     <Compile Include="ElevationTests.cs" />
+    <Compile Include="ParamethersTests.cs" />
+    <Compile Include="SpeedTests.cs" />
     <Compile Include="TimeTests.cs" />
     <Compile Include="uDistanceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
