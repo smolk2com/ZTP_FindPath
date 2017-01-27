@@ -9,6 +9,17 @@ namespace ZTP_PathLibrary
 {
     public static class Elevation
     {
+        #region Obliczanie minimalnej wysokości wzniesienia
+        public static double MinimumElevation(List<Points> _points)
+        {
+            List<double> _Height = new List<double>();
+            foreach (var _onePoint in _points)
+            {
+                _Height.Add(_onePoint.ele);
+            }
+            return Math.Round(_Height.Min(), 2);
+        }
+        #endregion
         #region Obliczanie średniej wspinania
         public static double AverageElevation(List<Points> _points)
         {
