@@ -16,7 +16,7 @@ namespace ZTP_Start
         {
             var builder = new ContainerBuilder();
             
-            builder.RegisterType<CalculateDistance>().As<ICalculate>();
+            builder.RegisterType<CalculateAll>().As<ICalculate>();
             builder.RegisterType<DisplayConsole>().As<IDisplayer>().WithParameter("points", points);
 
             return builder.Build();
