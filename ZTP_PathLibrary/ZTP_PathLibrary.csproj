@@ -61,16 +61,16 @@
     <Compile Include="Calculate\CalculateElevation.cs" />
     <Compile Include="Calculate\CalculateSpeed.cs" />
     <Compile Include="Calculate\CalculateTime.cs" />
-    <Compile Include="Pomiary\Distance.cs" />
-    <Compile Include="Pomiary\Elevation.cs" />
+    <Compile Include="Measurement\Distance.cs" />
+    <Compile Include="Measurement\Elevation.cs" />
     <Compile Include="Calculate\ICalculate.cs" />
     <Compile Include="Displayer\DisplayConsole.cs" />
     <Compile Include="Displayer\DisplayTxt.cs" />
     <Compile Include="Displayer\IDisplayer.cs" />
     <Compile Include="Paramethers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Pomiary\Speed.cs" />
-    <Compile Include="Pomiary\Time.cs" />
+    <Compile Include="Measurement\Speed.cs" />
+    <Compile Include="Measurement\Time.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
