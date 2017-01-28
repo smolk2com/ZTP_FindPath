@@ -64,11 +64,13 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="ZTP_PathLibrary">
-      <HintPath>..\ZTP_PathLibrary\bin\Debug\ZTP_PathLibrary.dll</HintPath>
+      <HintPath>..\ZTP_PathLibrary\obj\Debug\ZTP_PathLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DIConfigs\DisplayTxtSpeedConfig.cs" />
+    <Compile Include="DIConfigs\DisplayAllConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

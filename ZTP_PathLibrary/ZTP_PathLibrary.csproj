@@ -60,13 +60,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DependancyResolver.cs" />
-    <Compile Include="Distance.cs" />
-    <Compile Include="Elevation.cs" />
+    <Compile Include="Calculate\CalculateAll.cs" />
+    <Compile Include="Calculate\CalculateDistance.cs" />
+    <Compile Include="Calculate\CalculateElevation.cs" />
+    <Compile Include="Calculate\CalculateSpeed.cs" />
+    <Compile Include="Calculate\CalculateTime.cs" />
+    <Compile Include="Pomiary\Distance.cs" />
+    <Compile Include="Pomiary\Elevation.cs" />
+    <Compile Include="Calculate\ICalculate.cs" />
+    <Compile Include="Displayer\DisplayConsole.cs" />
+    <Compile Include="Displayer\DisplayTxt.cs" />
+    <Compile Include="Displayer\IDisplayer.cs" />
     <Compile Include="Paramethers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Speed.cs" />
-    <Compile Include="Time.cs" />
+    <Compile Include="Pomiary\Speed.cs" />
+    <Compile Include="Pomiary\Time.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
